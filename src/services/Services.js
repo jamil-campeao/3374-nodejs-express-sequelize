@@ -9,6 +9,14 @@ class Services {
     return datasource[this.model].findAll();
   }
 
+  async atualizaRegistro(dadosAtualizados, id) {
+    const listaDeRegistrosAtualizados = datasource[this.model].update(dadosAtualizados, {
+      where: { id: id}
+    });
+
+    return listaDeRegistrosAtualizados[0] === 0 ? false : true;
+  }
+
   
 }
 
